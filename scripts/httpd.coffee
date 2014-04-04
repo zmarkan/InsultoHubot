@@ -18,10 +18,23 @@
 #   /hubot/ip
 
 spawn = require('child_process').spawn
+Util = require 'util'
 
 module.exports = (robot) ->
 
+  robot.router.post "/say", (req, res) ->
+    what = req.body.param
+    # res.end what
+    robot.send "Samuel L Hubot", ""+what+" Motherfucker!"
+    res.end "Done."
+
   robot.router.get "/hubot/version", (req, res) ->
+    # res.end robot.version
+    robot.respond "bla bla bla"
+    # messsage = new Message("bla");
+    # msg.send "bla bla bla"
+    # res.send "bla bla bla"
+    robot.send "Samuel L Hubot", "bla bla Motherfucker!"
     res.end robot.version
 
   robot.router.post "/hubot/ping", (req, res) ->
